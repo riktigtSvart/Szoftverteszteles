@@ -28,6 +28,9 @@ public class HomePage {
     @FindBy (css = "#fadein > div.vt-container > div:nth-child(2) > div.vt-col.bottom-center > div > div > h4")
     private WebElement popupErrorMessage;
 
+    @FindBy (xpath = "//*[@id=\"fadein\"]/main/div/div/div[1]/div[1]/div[1]/div[1]/div[1]")
+    private WebElement theNameOfHotelFieldShouldReadMovenpickGrandAlBustan;
+
     static final Map<String, By> navigationButtons = Map.of(
             "Hotel Tab", By.xpath("//*[@id=\"tab\"]/li[2]/button"),
             "Submit", By.xpath("//*[@id=\"hotels-search\"]/div/div[5]/button"),
@@ -44,14 +47,15 @@ public class HomePage {
     static final Map<String, By> navigationButtons2 = Map.of(
             "Book Now", By.xpath("//*[@id=\"fadein\"]/main/div[4]/div/section/div[2]/div/div/div/div[2]" +
                     "/div/div[2]/form/div/div[2]/div[3]/button"),
-            "Search", By.xpath("//*[@id=\"hotels-search\"]/div/div[5]")
+            "Search", By.xpath("//*[@id=\"hotels-search\"]/div/div[5]"),
+            "First Pic", By.xpath("//*[@id=\"fadein\"]/main/section[2]/div/div/div[2]/div[1]/div/div/div[1]/div/div[1]/a")
     );
 
     static final Map<String, By> textFields = Map.of(
             "Hotels City", By.id("hotels_city"),
             "Username", By.id("email"),
             "Password", By.id("password"),
-            "car_price", By.xpath("//*[@id=\"fadein\"]/main/div[4]/div/section/div[2]/div/div/div/div[2]/div/div[2]/form/div/div[2]/div[3]/span"),
+            "car_price", By.xpath("//*[@id=\"fadein\"]/main/div[4]/div/section/div[2]/div/div/div/div[2]/div/div[1]/form/div/div[2]/div[3]/span/strong"),
             "Place", By.xpath("//*[@id=\"hotels-search\"]/div/div[1]"),
             "CheckIn", By.xpath("//*[@id=\"hotels-search\"]/div/div[2]"),
             "CheckOut", By.xpath("//*[@id=\"hotels-search\"]/div/div[3]")
@@ -77,6 +81,10 @@ public class HomePage {
     public String getErrorMessage() { return errorMessage.getText(); }
 
     public String getLoginMissingError() { return popupErrorMessage.getText(); }
+
+    public String getTheNameOfHotelFieldShouldReadMovenpickGrandAlBustan() {
+        return theNameOfHotelFieldShouldReadMovenpickGrandAlBustan.getText();
+    }
 
     public void fillOutField(String field, String text) {
         driver.findElement(textFields.get(field)).sendKeys(text);

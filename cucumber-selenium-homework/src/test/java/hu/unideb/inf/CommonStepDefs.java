@@ -5,8 +5,6 @@ import io.cucumber.java.en.*;
 
 public class CommonStepDefs extends AbstractStepDefs {
 
-    private static final int WAIT_TIME = 10;
-
     @Given("the homepage is opened")
     public void theHomepageIsOpened() {
         homePage.openPage();
