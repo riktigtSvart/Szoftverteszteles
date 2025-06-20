@@ -25,4 +25,9 @@ public class HotelTabStepDefs extends AbstractStepDefs{
     public void theNumberOfHotelsFieldShouldRead(String message) {
         assertEquals(message, homePage.getErrorMessage());
     }
+
+    @Then("the NameOfHotel field should read {string}")
+    public void theNameOfHotelFieldShouldReadMovenpickGrandAlBustan(String hotelName) {
+        assertEquals(hotelName, homePage.getTheNameOfHotelFieldShouldReadMovenpickGrandAlBustan());
+    }
 }
