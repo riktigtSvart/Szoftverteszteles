@@ -30,4 +30,9 @@ public class HotelTabStepDefs extends AbstractStepDefs{
     public void theNameOfHotelFieldShouldReadMovenpickGrandAlBustan(String hotelName) {
         assertEquals(hotelName, homePage.getTheNameOfHotelFieldShouldReadMovenpickGrandAlBustan());
     }
+
+    @When("the {string} button is clicked3")
+    public void theTabulatorButtonIsClicked(String button) {
+        homePage.clickButton3(button);
+    }
 }
