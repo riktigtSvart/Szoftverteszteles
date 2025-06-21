@@ -52,11 +52,11 @@ public class HomePage {
     );
 
     static final Map<String, By> navigationButtons3 = Map.of(
-            "Flights", By.xpath(""),
-            "Hotels", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[1]"),
-            "Tours", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[2]"),
-            "Cars", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[3]"),
-            "Visa", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[4]")
+            "Flights", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[1]"),
+            "Hotels", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[2]"),
+            "Tours", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[3]"),
+            "Cars", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[4]"),
+            "Visa", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[5]")
     );
 
     static final Map<String, By> textFields = Map.of(
@@ -67,6 +67,12 @@ public class HomePage {
             "Place", By.xpath("//*[@id=\"hotels-search\"]/div/div[1]"),
             "CheckIn", By.xpath("//*[@id=\"hotels-search\"]/div/div[2]"),
             "CheckOut", By.xpath("//*[@id=\"hotels-search\"]/div/div[3]")
+    );
+
+    static final Map<String, By> carType = Map.of(
+            "Hyundai i10", By.xpath("//*[@id=\"fadein\"]/main/div[4]/div/section/div[2]/div/div/div/div[2]/div/div[1]/form/div/div[2]/p[1]/span/strong"),
+            "Ford Focus", By.xpath("//*[@id=\"fadein\"]/main/div[4]/div/section/div[2]/div/div/div/div[2]/div/div[2]/form/div/div[2]/p[1]/span/strong"),
+            "toyota Camry", By.xpath("//*[@id=\"fadein\"]/main/div[4]/div/section/div[2]/div/div/div/div[2]/div/div[3]/form/div/div[2]/p[1]/span/strong")
     );
 
     public void openPage(){
@@ -104,4 +110,6 @@ public class HomePage {
         driver.findElement(textFields.get(field)).sendKeys(text);
     }
 
+    public String getCarType(String type) { return String.valueOf(driver.findElement(By.xpath(carType.get(type).toString())));
+    }
 }
