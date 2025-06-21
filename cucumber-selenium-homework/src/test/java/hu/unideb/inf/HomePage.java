@@ -51,6 +51,14 @@ public class HomePage {
             "First Pic", By.xpath("//*[@id=\"fadein\"]/main/section[2]/div/div/div[2]/div[1]/div/div/div[1]/div/div[1]/a")
     );
 
+    static final Map<String, By> navigationButtons3 = Map.of(
+            "Flights", By.xpath(""),
+            "Hotels", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[1]"),
+            "Tours", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[2]"),
+            "Cars", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[3]"),
+            "Visa", By.xpath("//*[@id=\"navbarSupportedContent\"]/div[1]/ul/li[4]")
+    );
+
     static final Map<String, By> textFields = Map.of(
             "Hotels City", By.id("hotels_city"),
             "Username", By.id("email"),
@@ -78,6 +86,12 @@ public class HomePage {
         driver.findElement(navigationButtons2.get(button)).click();
     }
 
+    public void clickButton3(String button) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.valueOf(navigationButtons3.get(button)))));
+        driver.findElement(navigationButtons3.get(button)).click();
+    }
+
     public String getErrorMessage() { return errorMessage.getText(); }
 
     public String getLoginMissingError() { return popupErrorMessage.getText(); }
@@ -89,4 +103,5 @@ public class HomePage {
     public void fillOutField(String field, String text) {
         driver.findElement(textFields.get(field)).sendKeys(text);
     }
+
 }
