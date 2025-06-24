@@ -6,10 +6,10 @@ Feature: check currency rates
     Scenario Outline:
       Given click on 'Choose Currency' button
       When click on '<currency>' button
-      Then the '<car_price>' message is shown
+      Then the '<car_price>' message is shown in field
       Examples:
         | currency  | car_price   |
         | EUR       | EUR 88.13   |
-        | PHP       | PHP 5671.25 |
-        | SAR       | SAR 375.22  |
-        | GBP       | GBP 75.38   |
+        | PHP       | PHP 5,561.65|
+        | SAR       | SAR 375.07  |
+        | GBP       | GBP 74.31   |

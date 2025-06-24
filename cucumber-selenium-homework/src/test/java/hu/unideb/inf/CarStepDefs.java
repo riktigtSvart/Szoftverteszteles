@@ -10,4 +10,9 @@ public class CarStepDefs {
     public void theCar_typeTypeIsShown(String type, String car) {
         assertEquals(car, String.valueOf(homePage.getCarType(type)));
     }
+
+    @Then("the {string} message is shown in field")
+    public void theCar_priceMessageIsShown(String message) {
+        assertEquals(message, homePage.getCurrency());
+    }
 }
