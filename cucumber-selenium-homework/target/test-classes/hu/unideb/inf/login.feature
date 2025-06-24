@@ -8,10 +8,10 @@ Feature: User login
     Given the 'Username' field is filled with '<username>'
     And the 'Password' field is filled with '<password>'
     When the 'Login' button is clicked
-    Then the '<errorMessage>' message is shown
+    Then the '<errorMessage>' errorMessage is shown
     Examples:
       | username            | password  | errorMessage  |
-      |                     |           |               |
-      |                     | badpwd    |               |
-      | notexist@fake.com   |           |               |
-      | notexist@fake.com   | badpwd    |               |
+      |                     |           | Invalid Login |
+      |                     | badpwd    | Invalid Login |
+      | notexist@fake.com   |           | Invalid Login |
+      | notexist@fake.com   | badpwd    | Invalid Login |
