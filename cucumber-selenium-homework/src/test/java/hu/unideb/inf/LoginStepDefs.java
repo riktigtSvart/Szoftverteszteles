@@ -9,7 +9,7 @@ public class LoginStepDefs extends AbstractStepDefs{
     @Given("the {string} field is filled with {string}")
     public void theUsernameFieldIsFilledWithUsername(String field, String text) { homePage.fillOutField(field, text); }
 
-    @Then("the {string} message is shown")
+    @Then("the {string} errorMessage is shown")
     public void theErrorMessageMessageIsShown(String errorMessage) {
         assertEquals(errorMessage, homePage.getLoginMissingError());
     }
